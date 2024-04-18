@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  ubuntu_01:
+    image: my_ubuntu  # 或者使用 image: ubuntu
+    container_name: ubuntu_01
+    command: /bin/bash -c "tail -f /dev/null"
+
+  ubuntu_02:
+    image: my_ubuntu  # 或者使用 image: ubuntu
+    container_name: ubuntu_02
+    command: /bin/bash -c "tail -f /dev/null"
+
+  mysql:
+    image: mysql  # 或者任何你需要的MySQL版本
+    container_name: my_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword  # 替换为你的MySQL根密码
+      MYSQL_DATABASE: yourdatabase  # 如果需要，替换为你的数据库名
+    ports:
+      - "3306:3306"  # 对外暴露MySQL端口
